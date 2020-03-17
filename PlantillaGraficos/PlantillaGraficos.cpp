@@ -84,18 +84,225 @@ void inicializarPiramide()
 	};
 	Vertice v5 =
 	{
-		vec3(-0.5f, -0.4f, 0.0f),
-		vec4(0.1f, 0.8f, 0.2f, 1.0f)
+		vec3(0.55f, -0.5f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
 	};
 	Vertice v6 =
 	{
-		vec3(-0.5f, -0.5f, 0.0f),
-		vec4(0.1f, 0.8f, 0.2f, 1.0f)
+		vec3(-0.55f, -0.5f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
 	};
+	Vertice v7 =
+	{
+		vec3(-0.55f, -0.4f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v8 =
+	{
+		vec3(0.55f, -0.4f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v9 =
+	{
+		vec3(0.5f, -0.4f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v10 =
+	{
+		vec3(-0.5f, -0.4f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v11 =
+	{
+		vec3(-0.5f, -0.3f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v12 =
+	{
+		vec3(0.5f, -0.3f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v13 =
+	{
+		vec3(0.45f, -0.3f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v14 =
+	{
+		vec3(-0.45f, -0.3f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v15 =
+	{
+		vec3(-0.45f, -0.2f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v16 =
+	{
+		vec3(0.45f, -0.2f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v17 =
+	{
+		vec3(0.4f, -0.2f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v18 =
+	{
+		vec3(-0.4f, -0.2f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v19 =
+	{
+		vec3(-0.4f, -0.1f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v20 =
+	{
+		vec3(0.4f, -0.1f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v21 =
+	{
+		vec3(0.35f, -0.1f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v22 =
+	{
+		vec3(-0.35f, -0.1f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v23 =
+	{
+		vec3(-0.35f, 0.0f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v24 =
+	{
+		vec3(0.35f, 0.0f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v25 =
+	{
+		vec3(0.3f, 0.0f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v26 =
+	{
+		vec3(-0.3f, 0.0f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v27 =
+	{
+		vec3(-0.3f, 0.1f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v28 =
+	{
+		vec3(0.3f, 0.1f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v29 =
+	{
+		vec3(0.25f, 0.1f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v30 =
+	{
+		vec3(-0.25f, 0.1f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v31 =
+	{
+		vec3(-0.25f, 0.2f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v32 =
+	{
+		vec3(0.25f, 0.2f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v33 =
+	{
+		vec3(0.1f, 0.2f, 0.0f),
+		vec4(0.3f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v34 =
+	{
+		vec3(-0.1f, 0.2f, 0.0f),
+		vec4(0.3f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v35 =
+	{
+		vec3(-0.1f, -0.6f, 0.0f),
+		vec4(0.3f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v36 =
+	{
+		vec3(0.1f, -0.6f, 0.0f),
+		vec4(0.3f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v37 =
+	{
+		vec3(0.15f, 0.2f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v38 =
+	{
+		vec3(-0.15f, 0.2f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v39 =
+	{
+		vec3(-0.15f, 0.4f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+	Vertice v40 =
+	{
+		vec3(0.15f, 0.4f, 0.0f),
+		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+	};
+
 	piramide.push_back(v1);
 	piramide.push_back(v2);
 	piramide.push_back(v3);
 	piramide.push_back(v4);
+	piramide.push_back(v5);
+	piramide.push_back(v6);
+	piramide.push_back(v7);
+	piramide.push_back(v8);
+	piramide.push_back(v9);
+	piramide.push_back(v10);
+	piramide.push_back(v11);
+	piramide.push_back(v12);
+	piramide.push_back(v13);
+	piramide.push_back(v14);
+	piramide.push_back(v15);
+	piramide.push_back(v16);
+	piramide.push_back(v17);
+	piramide.push_back(v18);
+	piramide.push_back(v19);
+	piramide.push_back(v20);
+	piramide.push_back(v21);
+	piramide.push_back(v22);
+	piramide.push_back(v23);
+	piramide.push_back(v24);
+	piramide.push_back(v25);
+	piramide.push_back(v26);
+	piramide.push_back(v27);
+	piramide.push_back(v28);
+	piramide.push_back(v29);
+	piramide.push_back(v30);
+	piramide.push_back(v31);
+	piramide.push_back(v32);
+	piramide.push_back(v33);
+	piramide.push_back(v34);
+	piramide.push_back(v35);
+	piramide.push_back(v36);
+	piramide.push_back(v37);
+	piramide.push_back(v38);
+	piramide.push_back(v39);
+	piramide.push_back(v40);
 }
 
 void inicializarTriangulo()
