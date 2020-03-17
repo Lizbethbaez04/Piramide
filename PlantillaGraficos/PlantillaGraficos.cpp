@@ -19,9 +19,6 @@
 using namespace std;
 
 //Cada elemento que se quiera renderear necesita un vertex arrary y un buffer
-vector<Vertice> cielo;
-GLuint vertexArrayCieloID;
-GLuint bufferCieloID;
 
 vector<Vertice> suelo;
 GLuint vertexArraySueloID;
@@ -30,10 +27,6 @@ GLuint bufferSueloID;
 vector<Vertice> nubes;
 GLuint vertexArrayNubesID;
 GLuint bufferNubesID;
-
-vector<Vertice> triangulo;
-GLuint vertexArrayTrianguloID;
-GLuint bufferTrianguloID;
 
 vector<Vertice> piramide;
 GLuint vertexArrayPiramideID;
@@ -45,19 +38,64 @@ Shader *shader;
 GLuint posicionID;
 GLuint colorID;
 
-void inicializarCielo()
-{
-
-}
 
 void inicializarSuelo()
 {
-
+	Vertice v1 =
+	{
+		vec3(-1.0f, -1.0f, 0.0f),
+		vec4(0.1f, 0.8f, 0.2f, 1.0f)
+	};
+	Vertice v2 =
+	{
+		vec3(1.0f, -1.0f, 0.0f),
+		vec4(0.1f, 0.8f, 0.2f, 1.0f)
+	};
+	Vertice v3 =
+	{
+		vec3(1.0f, -0.5f, 0.0f),
+		vec4(0.1f, 0.8f, 0.2f, 1.0f)
+	};
+	Vertice v4 =
+	{
+		vec3(-1.0f, -0.5f, 0.0f),
+		vec4(0.1f, 0.8f, 0.2f, 1.0f)
+	};
+	suelo.push_back(v1);
+	suelo.push_back(v2);
+	suelo.push_back(v3);
+	suelo.push_back(v4);
 }
 
 void inicializarNubes()
 {
-
+	for(double i = 0; i < 360.0; i += 9.0)
+	{
+		Vertice v1 =
+		{
+			vec3((0.28 * cos(i * 3.14159 / 180.0)) - 0.25, (0.065 * sin(i * 3.14159 / 180.0)) + 0.65, 0.0f),
+			vec4(0.6745098039215686f, 0.8156862745098039f, 0.9058823529411765f, 1.0)
+		};
+		nubes.push_back(v1);
+	}
+	for (double i = 0; i < 360.0; i += 9.0)
+	{
+		Vertice v2 =
+		{
+			vec3((0.38 * cos(i * 3.14159 / 180.0)) - 0.35, (0.065 * sin(i * 3.14159 / 180.0)) + 0.6, 0.0f),
+			vec4(0.6745098039215686f, 0.8156862745098039f, 0.9058823529411765f, 1.0)
+		};
+		nubes.push_back(v2);
+	}
+	for (double i = 0; i < 360.0; i += 9.0)
+	{
+		Vertice v3 =
+		{
+			vec3((0.48 * cos(i * 3.14159 / 180.0)) + 0.35, (0.065 * sin(i * 3.14159 / 180.0)) + 0.65, 0.0f),
+			vec4(0.6745098039215686f, 0.8156862745098039f, 0.9058823529411765f, 1.0)
+		};
+		nubes.push_back(v3);
+	}
 }
 
 void inicializarPiramide()
@@ -65,202 +103,202 @@ void inicializarPiramide()
 	Vertice v1 =
 	{
 		vec3(-0.6f, -0.5f, 0.0f),
-		vec4(0.1f, 0.8f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v2 =
 	{
 		vec3(-0.6f, -0.6f, 0.0f),
-		vec4(0.1f, 0.8f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v3 =
 	{
 		vec3(0.6f, -0.6f, 0.0f),
-		vec4(0.1f, 0.8f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v4 =
 	{
 		vec3(0.6f, -0.5f, 0.0f),
-		vec4(0.1f, 0.8f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v5 =
 	{
 		vec3(0.55f, -0.5f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v6 =
 	{
 		vec3(-0.55f, -0.5f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v7 =
 	{
 		vec3(-0.55f, -0.4f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v8 =
 	{
 		vec3(0.55f, -0.4f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v9 =
 	{
 		vec3(0.5f, -0.4f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v10 =
 	{
 		vec3(-0.5f, -0.4f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v11 =
 	{
 		vec3(-0.5f, -0.3f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v12 =
 	{
 		vec3(0.5f, -0.3f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v13 =
 	{
 		vec3(0.45f, -0.3f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v14 =
 	{
 		vec3(-0.45f, -0.3f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v15 =
 	{
 		vec3(-0.45f, -0.2f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v16 =
 	{
 		vec3(0.45f, -0.2f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v17 =
 	{
 		vec3(0.4f, -0.2f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v18 =
 	{
 		vec3(-0.4f, -0.2f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v19 =
 	{
 		vec3(-0.4f, -0.1f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v20 =
 	{
 		vec3(0.4f, -0.1f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v21 =
 	{
 		vec3(0.35f, -0.1f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v22 =
 	{
 		vec3(-0.35f, -0.1f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v23 =
 	{
 		vec3(-0.35f, 0.0f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v24 =
 	{
 		vec3(0.35f, 0.0f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v25 =
 	{
 		vec3(0.3f, 0.0f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v26 =
 	{
 		vec3(-0.3f, 0.0f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v27 =
 	{
 		vec3(-0.3f, 0.1f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v28 =
 	{
 		vec3(0.3f, 0.1f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v29 =
 	{
 		vec3(0.25f, 0.1f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v30 =
 	{
 		vec3(-0.25f, 0.1f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v31 =
 	{
 		vec3(-0.25f, 0.2f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v32 =
 	{
 		vec3(0.25f, 0.2f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v33 =
 	{
 		vec3(0.1f, 0.2f, 0.0f),
-		vec4(0.3f, 0.9f, 0.2f, 1.0f)
+		vec4(0.803921568627451f,0.7294117647058824f,0.3254901960784314f, 1.0f)
 	};
 	Vertice v34 =
 	{
 		vec3(-0.1f, 0.2f, 0.0f),
-		vec4(0.3f, 0.9f, 0.2f, 1.0f)
+		vec4(0.803921568627451f,0.7294117647058824f,0.3254901960784314f, 1.0f)
 	};
 	Vertice v35 =
 	{
 		vec3(-0.1f, -0.6f, 0.0f),
-		vec4(0.3f, 0.9f, 0.2f, 1.0f)
+		vec4(0.803921568627451f,0.7294117647058824f,0.3254901960784314f, 1.0f)
 	};
 	Vertice v36 =
 	{
 		vec3(0.1f, -0.6f, 0.0f),
-		vec4(0.3f, 0.9f, 0.2f, 1.0f)
+		vec4(0.803921568627451f,0.7294117647058824f,0.3254901960784314f, 1.0f)
 	};
 	Vertice v37 =
 	{
 		vec3(0.15f, 0.2f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v38 =
 	{
 		vec3(-0.15f, 0.2f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v39 =
 	{
 		vec3(-0.15f, 0.4f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 	Vertice v40 =
 	{
 		vec3(0.15f, 0.4f, 0.0f),
-		vec4(0.1f, 0.9f, 0.2f, 1.0f)
+		vec4(0.8705882352941176f, 0.7882352941176471f,0.3490196078431373f, 1.0f)
 	};
 
 	piramide.push_back(v1);
@@ -305,41 +343,23 @@ void inicializarPiramide()
 	piramide.push_back(v40);
 }
 
-void inicializarTriangulo()
-{
-	Vertice v1 =
-	{
-		vec3(0.0f, 0.5f, 0.0f), 
-		vec4(0.8f, 0.1f, 0.0f, 1.0f)
-	};
-	Vertice v2 =
-	{
-		vec3(-0.6f, -0.6f, 0.0f),
-		vec4(0.8f, 0.1f, 0.0f, 1.0f)
-	};
-	Vertice v3 =
-	{
-		vec3(0.6f, -0.6f, 0.0f),
-		vec4(0.8f, 0.1f, 0.0f, 1.0f)
-	};
-	triangulo.push_back(v1);
-	triangulo.push_back(v2);
-	triangulo.push_back(v3);
-}
 
 void dibujar()
 {
 	//Elegir shader
 	shader->enlazar();
 	//Elegir el vertexArray 
-	glBindVertexArray(vertexArrayTrianguloID);
 	//Llamar la funcion de dibujo-Dibujar
-	glDrawArrays(GL_TRIANGLES, 0, triangulo.size());
 
-	//Proceso dibujo de cuadrado
+	//Suelo
+	glBindVertexArray(vertexArraySueloID);
+	glDrawArrays(GL_QUADS, 0, suelo.size());
+	//Piramide
 	glBindVertexArray(vertexArrayPiramideID);
 	glDrawArrays(GL_QUADS, 0, piramide.size());//tipo de primitiva de dibujo, leerlo desde el principio, cuantos elementos tiene el vertexarray
-
+	//Nubes
+	glBindVertexArray(vertexArrayNubesID);
+	glDrawArrays(GL_POLYGON, 0, nubes.size());
 	//Soltar Bind
 	glBindVertexArray(0);
 	//Soltar/desenlazar Shader
@@ -380,12 +400,10 @@ int main()
 	const GLubyte* versionGL = glGetString(GL_VERSION);
 
 	cout << "Version OpenGL: " << versionGL;
-
-	inicializarCielo();
-	inicializarSuelo();
+	
 	inicializarNubes();
 	
-	inicializarTriangulo();
+	inicializarSuelo();
 	inicializarPiramide();
 
 	const char* rutaVertexShader = "VertexShader.shader";
@@ -399,30 +417,11 @@ int main()
 	shader->desenlazar();
 
 	//Crear el vertex array del triangulo
-	glGenVertexArrays(1, &vertexArrayTrianguloID);
-	glBindVertexArray(vertexArrayTrianguloID);
-	//Vertex buffer
-	glGenBuffers(1, &bufferTrianguloID);
-	glBindBuffer(GL_ARRAY_BUFFER, bufferTrianguloID);
-	//Asociar datos al buffer
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertice) * triangulo.size(), triangulo.data(), GL_STATIC_DRAW);
-	//Habilitar atributos de shader
-	glEnableVertexAttribArray(posicionID);
-	glEnableVertexAttribArray(colorID);
+	//Vertex buffer	
+	//Asociar datos al buffer	
+	//Habilitar atributos de shader	
 	//Especificar a openGL cómo comunicarse
-	glVertexAttribPointer(posicionID, 3, GL_FLOAT, GL_FALSE, sizeof(Vertice), 0);
-	glVertexAttribPointer(colorID, 4, GL_FLOAT, GL_FALSE, sizeof(Vertice), (void*)sizeof(vec3));
 
-	//Cielo
-	glGenVertexArrays(1, &vertexArrayCieloID);
-	glBindVertexArray(vertexArrayCieloID);
-	glGenBuffers(1, &bufferCieloID);
-	glBindBuffer(GL_ARRAY_BUFFER, bufferCieloID);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertice) * cielo.size(), cielo.data(), GL_STATIC_DRAW);
-	glEnableVertexAttribArray(posicionID);
-	glEnableVertexAttribArray(colorID);
-	glVertexAttribPointer(posicionID, 3, GL_FLOAT, GL_FALSE, sizeof(Vertice), 0);
-	glVertexAttribPointer(colorID, 4, GL_FLOAT, GL_FALSE, sizeof(Vertice), (void*)sizeof(vec3));
 
 	//Suelo
 	glGenVertexArrays(1, &vertexArraySueloID);
@@ -467,7 +466,7 @@ int main()
 		glViewport(0, 0, 600, 600);
 		//Establecemos el color de borrado
 		//Valores RGBA
-		glClearColor(1, 0.7, 0.9, 1);
+		glClearColor(0.3254901960784314, 0.6156862745098039, 0.803921568627451, 1);
 		//Borrar
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		//Actualizar valores y dibujar
